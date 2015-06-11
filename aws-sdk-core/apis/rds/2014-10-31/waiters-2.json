@@ -91,6 +91,20 @@
           "argument": "DBInstances[].DBInstanceStatus"
         }
       ]
+    },
+
+    "DBSnapshotAvailable": {
+      "delay": 30,
+      "operation": "DescribeDBSnapshots",
+      "maxAttempts": 60,
+      "acceptors": [
+        {
+          "expected": "available",
+          "matcher": "pathAll",
+          "state": "success",
+          "argument": "DBSnapshots[].Status"
+        }
+      ]
     }
   }
 }
